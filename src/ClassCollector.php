@@ -196,8 +196,8 @@ class ClassCollector extends NodeVisitorAbstract
             $this->resolver->addUseStatement($node);
         } elseif ($node instanceof Node\Stmt\GroupUse) {
             $this->resolver->addGroupUseStatement($node);
-        } elseif ($node instanceof Node\Stmt\ClassLike) {
-            if ($node->name !== null) {
+        } elseif ($node instanceof Node\Stmt\ClassLike) {			
+            if ($node->name !== null && ! $node instanceof  Node\Stmt\Enum_) {
                 $this->collect($this->factory->createFromNode($node));
             }
 
