@@ -39,7 +39,7 @@ class Scanner
         $this->ignore = false;
         $this->autoload = false;
         $this->collector = new ClassCollector();
-        $this->parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
+        $this->parser = (new ParserFactory())->createForHostVersion();
         $this->traverser = new NodeTraverser();
         $this->traverser->addVisitor($this->collector);
         $this->scannedFiles = [];
